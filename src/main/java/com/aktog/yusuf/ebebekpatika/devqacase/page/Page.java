@@ -30,7 +30,7 @@ public class Page {
         findBy(locator).sendKeys(input);
     }
 
-    public Boolean isDisplayed(By locator) {
+    public boolean isDisplayed(By locator) {
         return findBy(locator).isDisplayed();
     }
 }

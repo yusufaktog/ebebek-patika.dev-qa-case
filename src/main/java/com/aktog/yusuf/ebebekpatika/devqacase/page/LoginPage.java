@@ -20,4 +20,8 @@ public class LoginPage extends Page {
     public WebElement getPhoneTextInput() {
         return findBy(phoneTextLocator);
     }
+
+    public boolean isOnLoginPage(){
+        return findBy(phoneTextLocator).isDisplayed();
+    }
 }

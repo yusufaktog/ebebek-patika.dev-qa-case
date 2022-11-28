@@ -14,4 +14,8 @@ public class CartPage extends Page {
     public void completeTransaction() {
         findBy(competeTransactionButton).click();
     }
+
+    public boolean isOnCartPage(){
+        return findBy(competeTransactionButton).isDisplayed();
+    }
 }
