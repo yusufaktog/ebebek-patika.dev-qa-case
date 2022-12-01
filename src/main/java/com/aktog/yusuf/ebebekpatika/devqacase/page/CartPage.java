@@ -2,20 +2,28 @@ package com.aktog.yusuf.ebebekpatika.devqacase.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CartPage extends Page {
 
-    final By competeTransactionButton = By.id("btnGoToShippingAddress");
+    final By competeTransactionButtonLocator = By.id("btnGoToShippingAddress");
 
-    public CartPage(WebDriver webDriver) {
-        super(webDriver);
+    public CartPage(WebDriver webDriver, WebDriverWait wait) {
+        super(webDriver, wait);
     }
 
     public void completeTransaction() {
-        findBy(competeTransactionButton).click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(competeTransactionButtonLocator));
+
+        findBy(competeTransactionButtonLocator).click();
     }
 
-    public boolean isOnCartPage(){
-        return findBy(competeTransactionButton).isDisplayed();
+    public boolean isOnCartPage() {
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(competeTransactionButtonLocator));
+
+        return findBy(competeTransactionButtonLocator).isDisplayed();
     }
 }

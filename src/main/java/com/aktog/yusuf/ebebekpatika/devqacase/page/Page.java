@@ -3,15 +3,18 @@ package com.aktog.yusuf.ebebekpatika.devqacase.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 public class Page {
 
-    public final WebDriver webDriver;
+    protected final WebDriver webDriver;
+    protected final WebDriverWait wait;
 
-    public Page(WebDriver webDriver) {
+    public Page(WebDriver webDriver, WebDriverWait wait) {
         this.webDriver = webDriver;
+        this.wait = wait;
     }
 
     public WebElement findBy(By locator) {

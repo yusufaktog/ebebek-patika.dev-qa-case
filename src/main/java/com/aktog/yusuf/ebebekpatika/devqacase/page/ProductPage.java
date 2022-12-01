@@ -2,6 +2,8 @@ package com.aktog.yusuf.ebebekpatika.devqacase.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductPage extends Page {
 
@@ -9,16 +11,21 @@ public class ProductPage extends Page {
     By productTitleLocator = By.id("txtProductTitle");
     By goToChartLocator = By.id("btnShowCart");
 
-
-    public ProductPage(WebDriver webDriver) {
-        super(webDriver);
+    public ProductPage(WebDriver webDriver, WebDriverWait wait) {
+        super(webDriver, wait);
     }
 
     public void addToCart() {
+
+        wait.until(ExpectedConditions.elementToBeClickable(addToCartButtonLocator));
+
         click(addToCartButtonLocator);
     }
 
     public String getProductTitle() {
+
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(productTitleLocator,0));
+
         return findAllBy(productTitleLocator).get(1).getText();
     }
 
@@ -27,14 +34,17 @@ public class ProductPage extends Page {
     }
 
     public void goToCart() {
+
+        wait.until(ExpectedConditions.elementToBeClickable(goToChartLocator));
+
         click(goToChartLocator);
     }
 
-    public boolean isAddToChartButtonDisplayed(){
+    public boolean isAddToChartButtonDisplayed() {
         return findBy(addToCartButtonLocator).isDisplayed();
     }
 
     public boolean isGoToChartButtonDisplayed() {
-        return  findBy(goToChartLocator).isDisplayed();
+        return findBy(goToChartLocator).isDisplayed();
     }
 }

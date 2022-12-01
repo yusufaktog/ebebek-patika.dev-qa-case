@@ -1,6 +1,5 @@
-package com.aktog.yusuf.ebebekpatika.devqacase;
+package com.aktog.yusuf.ebebekpatika.devqacase.log;
 
-import com.aktog.yusuf.ebebekpatika.devqacase.log.Log;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
 
